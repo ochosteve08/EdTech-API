@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "trans-anchor-343214",
+  "private_key_id": "b161749f95a73fd8ccf12592e6fb9c0c21f17dc0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1aDeBJIUmAR1d\nN4ahThGCMC1/A9Cu2pLgfwpkjnojnsLwvKYpCEFpBX1Ov//GWi9Lgi0S8sXv0bSE\nEO0H/pwQMuZYh2eMlDD5fqvNkWCV4dzdmIoAeYVHRTlC5aBIeiyvv3oKYTK5nWk/\nFfbZoj/vY7XY4r75EJjEdXs4iT18J1zCZVV9HEK0IiHmBOygtjvRgUb6qOeDxo0/\nnoTLDMP0WaxLw3Ln89RzkB/z5/1BTKWI00cQIfS9Xqd613FSuWLdO6f8ZvbPzdXB\nuBbAVztAgPLEF+zWfbtH8ASqD/y0WK9XZgZUxvZ5SZ5Mj6vmejCSf73vczYCJ0Ar\ncEK3aAW1AgMBAAECggEAKCpLg8oAuxHrHP0Sz3s4EDG3mRRQq65Ub+Vg+TO8ok9g\nDSpPxe0Ago7HGF0Vdib4qsjHTxc2sSsmw0j2GluK1WFXtAlC6ZLUJyGfS3QhRP5N\nxzijcYh2dHnEvGWYMAPxCfakwFCWCRfruh6UWcp9SnUyybMmooHEuVbjsfhdBzRW\nYHzree787zQcnAY89MKTCLyvOjVuLOKiRIEXMZiN63imrFxzBFuon/zftwjLAFwW\nRlsBtMTZLM+ZAbZB5WZmDMSM8OwsQrYK6/fUpdVwAqxtwkwO16H96dOPG5SNpaAz\noLPq5YNqrBmfP+kBAyprNiHy/PG3tOZLj0TCbpA1MQKBgQDiMTYFkU8FaDxJWcLp\n0kG4PDgKk8wn0tVTe32ZOakdwlNhzYbiecaMRLzyqeM0L/aoqJhKqJ8itBfgCaoi\n2Kz6DMoAZmBDOptCFD/l6uf2YJXp2lIx2qG1UqYZI715yKZuQT9C2o9OLRMJ8wcC\nB7pmdEmQKUXb+j5p6srOSVKE7QKBgQDNUCQQ1+JTDhP76yHtuU0mC+af2FXdqzrB\np30ZJM4D0rpYw/4RcZ0yYhW88+oynFR32m4PQlrsVFTMlpVA7vWdyFgmG+UJXLgK\nDJD+cbNfFt3N4LLXfZZBbxMft58Dfs0gwi5/fmAgNDbfjMWOwnO1d3hzSXxjD83x\nGmaZqJny6QKBgCIPwQ/Tku/Ag5uUHcryM51XzCSjnxG8KQ26Qe6qBTKLCd1ngtFl\n/yUuULnGJYW9V0qMoOpVPCmQryu4qNs4f8vj0yN+Ry64i5rGy9yGpEmwv8KIcuo4\n/zL78DFG9Yh6U720q58YpI3kMcLEyyBeI468IjvIS1HV/EIc7k9kMT39AoGBAIPG\n/F8TMWC9mHYI5S3/0VSqLsxJvlMYpA3HwrNwvAoYJyLyKRBpK8w6yFkO9TKmxFBp\nElsY6+Lj/cmSnRmgRmWPQYS0Qr1PlZBdoHKv58EQnCyYHDHTma1F7bBd2uITcPWl\nrNKH+oqw+MdjQynuBPZkSBs2/29VpYkquM/HN4iBAoGAA8y0h7bjzxGOIGTn47nJ\nzbeEoC4N7sVqSpf4jkUn/COd+HprYCekTUArh7ZHKKbQGu8LNY8fbswS0TAuHh6n\nLhUZc4rIv3s21IgFi4ULXznaimVQdiCjNjJy3CeXsP7ifGOoL38g+FUlUO7Z0Yn6\n7TnBwX3lB1z1YL7Z697I0Hw=\n-----END PRIVATE KEY-----\n",
+  "client_email": "odriyo-service@trans-anchor-343214.iam.gserviceaccount.com",
+  "client_id": "101722088236799637190",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/odriyo-service%40trans-anchor-343214.iam.gserviceaccount.com"
+}
