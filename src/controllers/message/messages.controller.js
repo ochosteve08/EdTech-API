@@ -66,7 +66,6 @@ const fetchMessageHistory = async (req, res, next) => {
 const deleteMessage = async (req, res, next) => {
   try {
     const { messageId } = await messagesValidation.messageValidation.validateAsync(req.params);
-    console.log(messageId);
     // Delete the message from the database
     const deletedMessage = await messageServices.deleteMessage(messageId);
     console.log(deletedMessage);

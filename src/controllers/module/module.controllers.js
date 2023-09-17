@@ -8,10 +8,11 @@ const getModules = async (req, res, next) => {
   const transaction = await Transaction.startSession();
   try {
     await transaction.startTransaction();
-    if (!req.params.topicId) {
+    const { topicId } = req.params;
+    if (topicId) {
       throw error.throwNotFound({ message: 'topicId not found' });
     }
-    const { topicId } = (req.params);
+
     const module = await moduleServices.getModules({ topicId });
     return success.handler({ module }, req, res, next);
   } catch (err) {
@@ -47,10 +48,10 @@ const deleteModule = async (req, res, next) => {
   const transaction = await Transaction.startSession();
   try {
     await transaction.startTransaction();
-    const { moduleId } = await moduleValidation.moduleIdValidation.validateAsync({
-      moduleId: req.params.id,
+    const { id } = await moduleValidation.moduleIdValidation.validateAsync({
+      moduleId: req.params,
     });
-    const deletedModule = await moduleServices.deleteModule({ moduleId });
+    const deletedModule = await moduleServices.deleteModule({ id });
     if (!deletedModule) {
       throw error.throwNotFound({ message: 'module not found' });
     }
