@@ -7,6 +7,10 @@ const messageRoutes = express.Router();
 messageRoutes.post('/', authentication, messageControllers.sendMessage);
 messageRoutes.get('/:messageId', authentication, messageControllers.getMessages);
 messageRoutes.get('/:entityId', authentication, messageControllers.fetchMessageHistory);
-messageRoutes.delete('/', authentication, messageControllers.deleteMessage);
+messageRoutes.delete(
+  '/messageId',
+  authentication,
+  messageControllers.deleteMessage,
+);
 
 module.exports = messageRoutes;

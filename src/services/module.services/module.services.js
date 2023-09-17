@@ -44,7 +44,7 @@ const updateModule = async ({
 );
 
 // delete topic
-const deleteModule = async ({ moduleId }) => ModuleModel.findOneAndDelete({ _id: moduleId });
+const deleteModule = async ({ id }) => ModuleModel.findOneAndDelete({ _id: id });
 
 module.exports = {
   createModule,
