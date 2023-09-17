@@ -69,10 +69,10 @@ const deleteChapterById = async (req, res, next) => {
   const transaction = await Transaction.startSession();
   try {
     await transaction.startTransaction();
-    const id = await chapterValidation.chapterIdValidation.validateAsync(req.query.chapterId);
-    console.log(id);
+    const { chapterId } = await chapterValidation.chapterIdValidation.validateAsync(req.params);
+
     // check user exits or not
-    const chapter = await chapterServices.deleteChapterById({ id });
+    const chapter = await chapterServices.deleteChapterById({ chapterId });
     if (!chapter) {
       throw error.throwNotFound({ message: 'Chapter' });
     }

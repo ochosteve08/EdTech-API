@@ -13,7 +13,7 @@ const getChapter = async ({ chapterId, moduleId }) => {
   return ChapterModel.find(q);
 };
 // Deleting chapter by chapterId
-const deleteChapterById = async ({ id }) => ChapterModel.findOneAndDelete({ id });
+const deleteChapterById = async ({ chapterId }) => ChapterModel.findOneAndDelete({ _id: chapterId });
 
 // creating chapter
 const createChapter = async ({
