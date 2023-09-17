@@ -23,7 +23,7 @@ const projectTask = new Schema({
   approveStatus: {
     type: String,
     required: true,
-    defualt: 'pending',
+    default: 'pending',
   },
   createdAt: {
     type: Date,

@@ -1,25 +1,15 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
-
-const notificationTokenSchema = new Schema(
+const notificationTokenSchema = new mongoose.Schema(
   {
     token: {
       type: String,
       required: true,
     },
-    user_id: {
+    userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'user',
       required: true,
-    },
-    created_at: {
-      type: Date,
-      default: Date.now(),
-    },
-    updated_at: {
-      type: Date,
-      default: Date.now(),
     },
   },
   {

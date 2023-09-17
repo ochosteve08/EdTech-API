@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
-
-const notificationChannelSchema = new Schema(
+const notificationChannelSchema = new mongoose.Schema(
   {
-    channel_name: {
+    channelName: {
       type: String,
       required: true,
     },
-    channel_description: {
+    channelDescription: {
       type: String,
       required: true,
     },
@@ -17,25 +15,17 @@ const notificationChannelSchema = new Schema(
       enum: ['active', 'inactive'],
       default: 'active',
     },
-    created_at: {
-      type: Date,
-      default: Date.now(),
-    },
-    updated_at: {
-      type: Date,
-      default: Date.now(),
-    },
-    created_by: {
+    createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'user',
       required: true,
     },
-    channel_image: {
+    channelImage: {
       type: String,
       required: false,
     },
 
-    channel_users: [
+    channelUsers: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
