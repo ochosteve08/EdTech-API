@@ -132,17 +132,16 @@ const deleteCourseById = async (req, res, next) => {
   const transaction = await Transaction.startSession();
   try {
     await transaction.startTransaction();
-    const id = await courseValidation.courseIdValidation.validateAsync(req.params.id);
+    const { courseId } = await courseValidation.courseIdValidation.validateAsync(req.params);
     // check user exits or not
-    const course = await courseServices.deleteCourseById({ id });
+    const course = await courseServices.deleteCourseById({ courseId });
     if (!course) {
-      throw error.throwNotFound({ message: 'Course' });
+      throw error.throwNotFound({ message: 'Course not found' });
     }
     return success.handler({
       message: 'Course has been successfully deleted.',
       course,
     }, req, res, next);
-    // return WriteResult({ nRemoved: 1 });
   } catch (err) {
     await transaction.abortTransaction();
     return error.handler(err, req, res, next);

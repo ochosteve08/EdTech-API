@@ -5,8 +5,8 @@ const { courseControllers } = require('../../controllers');
 
 const courseRoutes = express.Router();
 
-courseRoutes.post('/create', authentication, courseControllers.createCourse);
-courseRoutes.get('/getCourses', authentication, courseControllers.findCourses);
+courseRoutes.post('/', authentication, courseControllers.createCourse);
+courseRoutes.get('/', authentication, courseControllers.findCourses);
 courseRoutes.put('/:courseId', authentication, courseControllers.updateCourse);
 courseRoutes.delete('/:courseId', authentication, courseControllers.deleteCourseById);
 
