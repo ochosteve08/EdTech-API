@@ -16,7 +16,7 @@ const courseAssignmentSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  courseCompletition: {
+  courseCompletion: {
     type: Boolean,
     required: true,
   },

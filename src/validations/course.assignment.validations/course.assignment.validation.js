@@ -1,7 +1,7 @@
 const enseedlingValidations = require('@Enseedling/enseedling-validations');
 const Joi = require('joi');
 
-// courseId  assignmentId  status  courseCompletition
+// courseId  assignmentId  status  courseCompletion
 
 const addCourseAssignmentVal = Joi.object().keys({
   courseId: enseedlingValidations._id.required().label('Course Id'),
@@ -11,10 +11,10 @@ const addCourseAssignmentVal = Joi.object().keys({
     .min(0)
     .max(100)
     .label('Status'),
-  courseCompletition: enseedlingValidations.generic.boolean
+  courseCompletion: enseedlingValidations.generic.boolean
     .required()
     .valid(true, false)
-    .label('Course Completition'),
+    .label('Course Completion'),
 });
 
 const findCourseAssignmentVal = Joi.object().keys({
@@ -24,9 +24,9 @@ const findCourseAssignmentVal = Joi.object().keys({
     .min(0)
     .max(100)
     .label('Status'),
-  courseCompletition: enseedlingValidations.generic.boolean
+  courseCompletion: enseedlingValidations.generic.boolean
     .valid(true, false)
-    .label('Course Completition'),
+    .label('Course Completion'),
 });
 
 const updateCourseAssignmentVal = Joi.object().keys({
@@ -36,9 +36,9 @@ const updateCourseAssignmentVal = Joi.object().keys({
     .min(0)
     .max(100)
     .label('Status'),
-  courseCompletition: enseedlingValidations.generic.boolean
+  courseCompletion: enseedlingValidations.generic.boolean
     .valid(true, false)
-    .label('Course Completition'),
+    .label('Course Completion'),
 });
 
 const courseAssignmentIdVal = Joi.object().keys({
