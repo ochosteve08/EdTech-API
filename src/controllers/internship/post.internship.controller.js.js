@@ -3,7 +3,7 @@ const { internshipValidation } = require('../../validations');
 const { internshipServices } = require('../../services');
 const { Transaction } = require('../../utils');
 
-const addinternship = async (req, res, next) => {
+const addInternship = async (req, res, next) => {
   const transaction = await Transaction.startSession();
   try {
     await transaction.startTransaction();
@@ -62,8 +62,13 @@ const removeInternship = async (req, res, next) => {
   const transaction = await Transaction.startSession();
   try {
     await transaction.startTransaction();
-    const id = await internshipValidation.deleteInternshipValidation.validateAsync(req.params.id);
-    const deleteInternship = await internshipServices.removePostInternship({ id }, transaction);
+    const { internshipId } = await internshipValidation.deleteInternshipValidation.validateAsync(
+      req.params,
+    );
+    const deleteInternship = await internshipServices.removePostInternship(
+      { internshipId },
+      transaction,
+    );
     if (!deleteInternship) {
       throw error.throwNotFound({ message: 'Internship does not exist' });
     }
@@ -76,4 +81,4 @@ const removeInternship = async (req, res, next) => {
   }
 };
 
-module.exports = { addinternship, findInternship, removeInternship };
+module.exports = { addInternship, findInternship, removeInternship };
