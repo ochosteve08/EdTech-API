@@ -5,9 +5,9 @@ const { assignmentController } = require('../../controllers');
 
 const assignmentsRoutes = express.Router();
 
-assignmentsRoutes.post('/assignment', authentication, assignmentController.addAssignment);
-assignmentsRoutes.get('/assignment', authentication, assignmentController.findAssignments);
-assignmentsRoutes.put('/:assignmentId', authentication, assignmentController.updateAssignment);
-assignmentsRoutes.delete('/:assignmentId', authentication, assignmentController.removeAssignment);
+assignmentsRoutes.post('/', authentication, assignmentController.addAssignment);
+assignmentsRoutes.get('/', authentication, assignmentController.findAssignments);
+assignmentsRoutes.put('/:id', authentication, assignmentController.updateAssignment);
+assignmentsRoutes.delete('/:id', authentication, assignmentController.removeAssignment);
 
 module.exports = assignmentsRoutes;
