@@ -11,13 +11,13 @@ const createCourseAssignment = async ({
   courseId,
   assignmentId,
   status,
-  courseCompletition,
+  courseCompletion,
 }, transaction) => {
   const CourseAssignment = new CourseAssignmentModel({
     courseId,
     assignmentId,
     status,
-    courseCompletition,
+    courseCompletion,
   });
   const saveCourseAssignment = await CourseAssignment.save({ transaction });
   return saveCourseAssignment;
@@ -26,7 +26,7 @@ const createCourseAssignment = async ({
 const getCourseAssignment = async ({
   _id,
   status,
-  courseCompletition,
+  courseCompletion,
 }) => {
   const query = {};
   if (_id) {
@@ -35,8 +35,8 @@ const getCourseAssignment = async ({
   if (status) {
     query.status = status;
   }
-  if (courseCompletition !== undefined) {
-    query.courseCompletition = courseCompletition;
+  if (courseCompletion !== undefined) {
+    query.courseCompletion = courseCompletion;
   }
   return CourseAssignmentModel.find(query);
 };
@@ -46,15 +46,15 @@ const updateTheCourseAssignment = async ({
   courseId,
   assignmentId,
   status,
-  courseCompletition,
+  courseCompletion,
 }) => {
   const output = await CourseAssignmentModel.findByIdAndUpdate(_id, {
     courseId,
     assignmentId,
     status,
-    courseCompletition,
+    courseCompletion,
   }, { new: true });
-  console.log(output);
+
   return output;
 };
 

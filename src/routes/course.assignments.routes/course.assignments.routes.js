@@ -3,8 +3,8 @@ const express = require('express');
 const { courseAssignmentController } = require('../../controllers');
 
 const courseAssignmentsRoutes = express.Router();
-courseAssignmentsRoutes.post('/course_assignments', courseAssignmentController.addCourseAssignment);
-courseAssignmentsRoutes.get('/course_assignments', courseAssignmentController.findCourseAssignment);
+courseAssignmentsRoutes.post('/', courseAssignmentController.addCourseAssignment);
+courseAssignmentsRoutes.get('/', courseAssignmentController.findCourseAssignment);
 courseAssignmentsRoutes.put('/:courseAssignmentsId', courseAssignmentController.updateCourseAssignment);
 courseAssignmentsRoutes.delete('/:courseAssignmentsId', courseAssignmentController.removeCourseAssignment);
 

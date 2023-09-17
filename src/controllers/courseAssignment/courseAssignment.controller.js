@@ -5,11 +5,10 @@ const { courseAssignmentValidation } = require('../../validations');
 const addCourseAssignment = async (req, res, next) => {
   try {
     const {
-      courseId,
-      assignmentId,
-      status,
-      courseCompletition,
-    } = await courseAssignmentValidation.addCourseAssignmentVal.validateAsync(req.body);
+      courseId, assignmentId, status, courseCompletion,
+    } = await courseAssignmentValidation.addCourseAssignmentVal.validateAsync(
+      req.body,
+    );
     const assignmentIdExist = await courseAssignmentServices.courseAssignmentExist({ assignmentId });
 
     if (!assignmentIdExist) {
@@ -20,10 +19,12 @@ const addCourseAssignment = async (req, res, next) => {
       courseId,
       assignmentId,
       status,
-      courseCompletition,
+      courseCompletion,
     });
     if (!addedCourseAssignment) {
-      throw error.throwNotFound({ message: 'Error occured during adding Course Assignment ' });
+      throw error.throwNotFound({
+        message: 'Error occurred during adding Course Assignment ',
+      });
     }
 
     return success.handler({ addedCourseAssignment }, req, res, next);
@@ -37,16 +38,20 @@ const findCourseAssignment = async (req, res, next) => {
     const {
       courseAssignmentsId: _id,
       status,
-      courseCompletition,
-    } = await courseAssignmentValidation.findCourseAssignmentVal.validateAsync(req.query);
+      courseCompletion,
+    } = await courseAssignmentValidation.findCourseAssignmentVal.validateAsync(
+      req.query,
+    );
     const courseAssignments = await courseAssignmentServices.getCourseAssignment({
       _id,
       status,
-      courseCompletition,
+      courseCompletion,
     });
 
     if (!courseAssignments.length) {
-      throw error.throwNotFound({ message: 'Course Assignment does not exist ' });
+      throw error.throwNotFound({
+        message: 'Course Assignment does not exist ',
+      });
     }
     return success.handler({ courseAssignments }, req, res, next);
   } catch (err) {
@@ -56,10 +61,16 @@ const findCourseAssignment = async (req, res, next) => {
 
 const removeCourseAssignment = async (req, res, next) => {
   try {
-    const { courseAssignmentsId } = await courseAssignmentValidation.courseAssignmentIdVal.validateAsync(req.params);
-    const deletedCourseAssignment = await courseAssignmentServices.deleteCourseAssignment(courseAssignmentsId);
+    const { courseAssignmentsId } = await courseAssignmentValidation.courseAssignmentIdVal.validateAsync(
+      req.params,
+    );
+    const deletedCourseAssignment = await courseAssignmentServices.deleteCourseAssignment(
+      courseAssignmentsId,
+    );
     if (!deletedCourseAssignment) {
-      throw error.throwNotFound({ message: 'unable to delete Course Assignment ' });
+      throw error.throwNotFound({
+        message: 'unable to delete Course Assignment ',
+      });
     }
 
     return success.handler({ deletedCourseAssignment }, req, res, next);
@@ -71,13 +82,14 @@ const removeCourseAssignment = async (req, res, next) => {
 const updateCourseAssignment = async (req, res, next) => {
   try {
     const {
-      courseId,
-      assignmentId,
-      status,
-      courseCompletition,
-    } = await courseAssignmentValidation.updateCourseAssignmentVal.validateAsync(req.body);
+      courseId, assignmentId, status, courseCompletion,
+    } = await courseAssignmentValidation.updateCourseAssignmentVal.validateAsync(
+      req.body,
+    );
 
-    const { courseAssignmentsId: _id } = await courseAssignmentValidation.courseAssignmentIdVal.validateAsync(req.params);
+    const { courseAssignmentsId: _id } = await courseAssignmentValidation.courseAssignmentIdVal.validateAsync(
+      req.params,
+    );
     const assignmentIdExist = await courseAssignmentServices.courseAssignmentExist({ assignmentId });
 
     if (!assignmentIdExist) {
@@ -89,11 +101,13 @@ const updateCourseAssignment = async (req, res, next) => {
       courseId,
       assignmentId,
       status,
-      courseCompletition,
+      courseCompletion,
     });
 
     if (!updatedCourseAssignment) {
-      throw error.throwNotFound({ message: 'unable to update Course Assignment ' });
+      throw error.throwNotFound({
+        message: 'unable to update Course Assignment ',
+      });
     }
     return success.handler({ updatedCourseAssignment }, req, res, next);
   } catch (err) {

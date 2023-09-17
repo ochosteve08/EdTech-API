@@ -94,7 +94,7 @@ const getCourses = async ({ courseId, courseName, categoryIds }) => {
   }
   return CourseModel.find(filter);
 };
-const deleteCourseById = async ({ id }) => CourseModel.findOneAndDelete({ id });
+const deleteCourseById = async ({ courseId }) => CourseModel.findOneAndDelete({ _id: courseId });
 
 module.exports = {
   getCourses,
