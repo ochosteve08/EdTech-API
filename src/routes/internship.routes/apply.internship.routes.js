@@ -4,10 +4,10 @@ const { internshipControllers } = require('../../controllers');
 
 const internshipRoutes = express.Router();
 
-internshipRoutes.post('/applyinternship', internshipControllers.applyInternship);
+internshipRoutes.post('/', internshipControllers.applyInternship);
 
-internshipRoutes.delete('/delete', internshipControllers.deleteInternship);
+internshipRoutes.delete('/', internshipControllers.deleteInternship);
 
-internshipRoutes.get('/appliedinternships', internshipControllers.getAppliedInternships);
+internshipRoutes.get('/', internshipControllers.getAppliedInternships);
 
 module.exports = internshipRoutes;

@@ -37,9 +37,9 @@ const deleteInternship = async (req, res, next) => {
     // Call the deleteInternship service to delete the applied internship
     const deletedInternship = await internshipService.deleteInternship(internshipId);
     if (!deletedInternship) {
-      return success.handler({ internshipId, message: 'Internship not found' }, req, res, next);
+      return success.handler({ message: 'Internship not found' }, req, res, next);
     }
-    return success.handler({ internshipId, message: 'Applied internship deleted successfully' }, req, res, next);
+    return success.handler({ message: 'Applied internship deleted successfully' }, req, res, next);
   } catch (err) {
     await transaction.abortTransaction();
     return error.handler(err, req, res, next);

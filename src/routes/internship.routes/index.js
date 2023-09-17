@@ -5,8 +5,8 @@ const postInternshipRoutes = require('./post.internship.routes');
 
 const internshipRoutes = express.Router();
 
-internshipRoutes.use(applyInternshipRoutes);
-internshipRoutes.use(postInternshipRoutes);
+internshipRoutes.use('/applyInternship', applyInternshipRoutes);
+internshipRoutes.use('/postInternship', postInternshipRoutes);
 
 internshipRoutes.use('*', () => error.throwNotFound({ item: 'Route' }));
 
