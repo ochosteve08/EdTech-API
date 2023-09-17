@@ -15,7 +15,9 @@ const addAssignment = async (req, res, next) => {
       difficultyLevel,
       deadline,
       marks,
-    } = await assignmentValidation.addAssignmentValidation.validateAsync(req.body);
+    } = await assignmentValidation.addAssignmentValidation.validateAsync(
+      req.body,
+    );
     const assignments = await assignmentServices.createAssignment({
       title,
       description,
@@ -30,7 +32,9 @@ const addAssignment = async (req, res, next) => {
     });
 
     if (!assignments) {
-      throw error.throwNotFound({ message: 'Unable to Create Assignment. Try Again' });
+      throw error.throwNotFound({
+        message: 'Unable to Create Assignment. Try Again',
+      });
     }
 
     return success.handler({ assignments }, req, res, next);
@@ -42,12 +46,13 @@ const addAssignment = async (req, res, next) => {
 const findAssignments = async (req, res, next) => {
   try {
     const {
-      title, category, isActive, difficultyLevel,
-      marks,
-    } = await assignmentValidation.findAssignmentValidation.validateAsync(req.query);
-    const {
-      assignmentId: _id,
-    } = await assignmentValidation.findAssignmentValidation.validateAsync(req.query);
+      title, category, isActive, difficultyLevel, marks,
+    } = await assignmentValidation.findAssignmentValidation.validateAsync(
+      req.query,
+    );
+    const { _id } = await assignmentValidation.findAssignmentValidation.validateAsync(
+      req.query,
+    );
     const assignments = await assignmentServices.getAssignments({
       _id,
       title,
@@ -67,7 +72,9 @@ const findAssignments = async (req, res, next) => {
 
 const removeAssignment = async (req, res, next) => {
   try {
-    const { id } = await assignmentValidation.assignmentIdValidation.validateAsync(req.params);
+    const { id } = await assignmentValidation.assignmentIdValidation.validateAsync(
+      req.params,
+    );
     const deleteAssignment = await assignmentServices.deleteAssignment(id);
 
     if (!deleteAssignment) {
@@ -92,8 +99,12 @@ const updateAssignment = async (req, res, next) => {
       difficultyLevel,
       deadline,
       marks,
-    } = await assignmentValidation.updateAssignmentValidation.validateAsync(req.body);
-    const { id } = await assignmentValidation.assignmentIdValidation.validateAsync(req.params);
+    } = await assignmentValidation.updateAssignmentValidation.validateAsync(
+      req.body,
+    );
+    const { id } = await assignmentValidation.assignmentIdValidation.validateAsync(
+      req.params,
+    );
     const updatedAssignment = await assignmentServices.updateTheAssignment({
       id,
       title,
@@ -108,7 +119,9 @@ const updateAssignment = async (req, res, next) => {
       marks,
     });
     if (!updatedAssignment) {
-      throw error.throwNotFound({ message: 'Sorry! unable to update assignment' });
+      throw error.throwNotFound({
+        message: 'Sorry! unable to update assignment',
+      });
     }
     return success.handler({ updatedAssignment }, req, res, next);
   } catch (err) {
@@ -117,5 +130,8 @@ const updateAssignment = async (req, res, next) => {
 };
 
 module.exports = {
-  addAssignment, findAssignments, removeAssignment, updateAssignment,
+  addAssignment,
+  findAssignments,
+  removeAssignment,
+  updateAssignment,
 };

@@ -49,34 +49,34 @@ To get started with the LMS Platform APIs, follow these steps:
 The LMS Platform APIs follow RESTful principles and provide the following endpoints:
 
 - **GET /courses**: Retrieve a list of all courses.
-- **GET /courses/{id}**: Retrieve a specific course by its ID.
+- **GET /courses/:id**: Retrieve a specific course by its ID.
 - **POST /courses**: Create a new course.
-- **PUT /courses/{id}**: Update an existing course.
-- **DELETE /courses/{id}**: Delete a course.
+- **PUT /courses/:id**: Update an existing course.
+- **DELETE /courses/:Id**: Delete a course.
 - **GET /enrollments**: Retrieve a list of all enrollments.
-- **GET /enrollments/{id}**: Retrieve a specific enrollment by its ID.
+- **GET /enrollments/:id**: Retrieve a specific enrollment by its ID.
 - **POST /enrollments**: Create a new enrollment.
-- **PUT /enrollments/{id}**: Update an existing enrollment.
-- **DELETE /enrollments/{id}**: Delete an enrollment.
+- **PUT /enrollments/:Id**: Update an existing enrollment.
+- **DELETE /enrollments/:Id**: Delete an enrollment.
 - **GET /users**: Retrieve a list of all users.
-- **GET /users/{id}**: Retrieve a specific user by their ID.
+- **GET /users/:id**: Retrieve a specific user by their ID.
 - **POST /users**: Create a new user.
-- **PUT /users/{id}**: Update an existing user.
-- **DELETE /users/{id}**: Delete a user.
+- **PUT /users/:id**: Update an existing user.
+- **DELETE /users/:Id**: Delete a user.
 - **GET /internships**: Retrieve a list of all internships.
-- **GET /internships/{id}**: Retrieve a specific internship by its ID.
+- **GET /internships/:id**: Retrieve a specific internship by its ID.
 - **POST /internships**: Create a new internship.
-- **PUT /internships/{id}**: Update an existing internship.
-- **DELETE /internships/{id}**: Delete an internship.
+- **PUT /internships/:Id**: Update an existing internship.
+- **DELETE /internships/:id**: Delete an internship.
 - **GET /assignments**: Retrieve a list of all assignments.
-- **GET /assignments/{id}**: Retrieve a specific assignment by its ID.
+- **GET /assignments/:id**: Retrieve a specific assignment by its ID.
 - **POST /assignments**: Create a new assignment.
-- **PUT /assignments/{id}**: Update an existing assignment.
-- **DELETE /assignments/{id}**: Delete an assignment.
+- **PUT /assignments/:id**: Update an existing assignment.
+- **DELETE /assignments/:id**: Delete an assignment.
 - **GET /assignment-feedbacks**: Retrieve a list of all assignment feedbacks.
-- **GET /assignment-feedbacks/{id}**: Retrieve a specific assignment feedback by its ID.
+- **GET /assignment-feedbacks/:id**: Retrieve a specific assignment feedback by its ID.
 - **POST /assignment-feedbacks**: Create a new assignment feedback.
-- **PUT /assignment-feedbacks/{id}**: Update an existing assignment feedback.
-- **DELETE /assignment-feedbacks/{id}**: Delete an assignment feedback.
+- **PUT /assignment-feedbacks/:id**: Update an existing assignment feedback.
+- **DELETE /assignment-feedbacks/:id**: Delete an assignment feedback.
 - **GET /course-assignments**: Retrieve a list of all course assignments.
-- **GET /course-assignments/{id}
+- **GET /course-assignments/:id
