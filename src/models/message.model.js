@@ -16,15 +16,15 @@ const messageSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    entity_id: {
+    entityId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
     },
-    entity_name: {
+    entityName: {
       type: String,
       required: true,
     },
-    is_read: {
+    isRead: {
       type: Boolean,
       default: false,
     },

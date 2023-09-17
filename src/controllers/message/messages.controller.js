@@ -9,9 +9,9 @@ const sendMessage = async (req, res, next) => {
       sender,
       receiver,
       message,
-      entity_id,
-      entity_name,
-      is_read,
+      entityId,
+      entityName,
+      isRead,
     } = await messagesValidation.sendMessageValidation.validateAsync(req.body);
 
     // Save the message to the database and return data
@@ -19,17 +19,15 @@ const sendMessage = async (req, res, next) => {
       sender,
       receiver,
       message,
-      entity_id,
-      entity_name,
-      is_read,
+      entityId,
+      entityName,
+      isRead,
     });
 
     const io = getIo();
     const socketId = getReceiverBySocket(receiver);
 
     if (socketId) {
-      console.log('send message');
-
       // Emit the 'message' event to the socket associated with the receiver
       io.to(socketId).emit('message', { sender, message });
     }
@@ -41,7 +39,7 @@ const sendMessage = async (req, res, next) => {
 };
 const getMessages = async (req, res, next) => {
   try {
-    const messageId = await messagesValidation.messageValidation.validateAsync(req.params);
+    const { messageId } = await messagesValidation.messageValidation.validateAsync(req.params);
     // Retrieve a single message by its ID from the database
     const message = await messageServices.getMessage(messageId);
 
@@ -55,12 +53,11 @@ const getMessages = async (req, res, next) => {
 };
 const fetchMessageHistory = async (req, res, next) => {
   try {
-    const entity_id = await messagesValidation.fetchMessageHistoryValidation
+    const { entityId } = await messagesValidation.fetchMessageHistoryValidation
       .validateAsync(req.params);
 
     // Fetch message history from the database
-    const message = await messageServices.fetchMessageHistory(entity_id);
-    console.log(message);
+    const message = await messageServices.fetchMessageHistory(entityId);
     return success.handler({ message }, req, res, next);
   } catch (err) {
     return error.handler(err, req, res, next);
@@ -68,7 +65,7 @@ const fetchMessageHistory = async (req, res, next) => {
 };
 const deleteMessage = async (req, res, next) => {
   try {
-    const messageId = await messagesValidation.messageValidation.validateAsync(req.params);
+    const { messageId } = await messagesValidation.messageValidation.validateAsync(req.params);
     console.log(messageId);
     // Delete the message from the database
     const deletedMessage = await messageServices.deleteMessage(messageId);
