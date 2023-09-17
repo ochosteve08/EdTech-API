@@ -2,7 +2,6 @@ const { success, error } = require('@Enseedling/enseedling-lib-handler');
 const { Transaction } = require('../../utils');
 const { projectValidation } = require('../../validations');
 const { projectServices } = require('../../services');
-// fetching all available projects
 
 const addProject = async (req, res, next) => {
   const transaction = await Transaction.startSession();
@@ -66,7 +65,6 @@ const updateProject = async (req, res, next) => {
 
     } = await projectValidation.updateProjectValidation.validateAsync(req.body);
     const { projectId } = await projectValidation.projectIdValidation.validateAsync(req.params);
-    console.log(projectId);
     const project = await projectServices.updateTheProject({
       projectId,
       projectTitle,
@@ -96,17 +94,18 @@ const deleteProjectById = async (req, res, next) => {
   const transaction = await Transaction.startSession();
   try {
     await transaction.startTransaction();
-    const id = await projectValidation.projectIdValidation.validateAsync(req.params.id);
-    // check user exits or not
-    const project = await projectServices.deleteProjectById({ id });
+    const { projectId } = await projectValidation.projectIdValidation.validateAsync(
+      req.params,
+    );
+
+    const project = await projectServices.deleteProjectById({ projectId });
     if (!project) {
-      throw error.throwNotFound({ message: 'Project' });
+      throw error.throwNotFound({ message: 'Project not found' });
     }
     return success.handler({
       message: 'Project has been successfully deleted.',
       project,
     }, req, res, next);
-    // return WriteResult({ nRemoved: 1 });
   } catch (err) {
     await transaction.abortTransaction();
     return error.handler(err, req, res, next);

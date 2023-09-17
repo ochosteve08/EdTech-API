@@ -12,7 +12,7 @@ const getTeacher = async ({ teacherId, teacherName }) => {
   return TeacherModel.find(q);
 };
 // Deleting project by projectId
-const deleteTeacherById = async ({ id }) => TeacherModel.findOneAndDelete({ id });
+const deleteTeacherById = async ({ teacherId }) => TeacherModel.findOneAndDelete({ _id: teacherId });
 
 const createTeacher = async ({
   teacherName,
