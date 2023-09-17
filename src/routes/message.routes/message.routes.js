@@ -4,9 +4,9 @@ const { messageControllers } = require('../../controllers');
 
 const messageRoutes = express.Router();
 
-messageRoutes.post('/send', authentication, messageControllers.sendMessage);
+messageRoutes.post('/', authentication, messageControllers.sendMessage);
 messageRoutes.get('/:messageId', authentication, messageControllers.getMessages);
-messageRoutes.get('/:entity_id', authentication, messageControllers.fetchMessageHistory);
-messageRoutes.delete('/:messageId', authentication, messageControllers.deleteMessage);
+messageRoutes.get('/:entityId', authentication, messageControllers.fetchMessageHistory);
+messageRoutes.delete('/', authentication, messageControllers.deleteMessage);
 
 module.exports = messageRoutes;
