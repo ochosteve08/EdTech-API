@@ -67,8 +67,8 @@ const findAssignments = async (req, res, next) => {
 
 const removeAssignment = async (req, res, next) => {
   try {
-    const { assignmentId } = await assignmentValidation.assignmentIdValidation.validateAsync(req.params);
-    const deleteAssignment = await assignmentServices.deleteAssignment(assignmentId);
+    const { id } = await assignmentValidation.assignmentIdValidation.validateAsync(req.params);
+    const deleteAssignment = await assignmentServices.deleteAssignment(id);
 
     if (!deleteAssignment) {
       throw error.throwNotFound({ message: 'Assignment Not Found' });
@@ -93,9 +93,9 @@ const updateAssignment = async (req, res, next) => {
       deadline,
       marks,
     } = await assignmentValidation.updateAssignmentValidation.validateAsync(req.body);
-    const { assignmentId } = await assignmentValidation.assignmentIdValidation.validateAsync(req.params);
+    const { id } = await assignmentValidation.assignmentIdValidation.validateAsync(req.params);
     const updatedAssignment = await assignmentServices.updateTheAssignment({
-      assignmentId,
+      id,
       title,
       description,
       requirements,
