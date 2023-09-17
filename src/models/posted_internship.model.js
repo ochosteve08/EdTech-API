@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
-
-const postedInternshipSchema = new Schema(
+const postedInternshipSchema = new mongoose.Schema(
   {
     categoryId: {
       type: String,
@@ -56,7 +54,7 @@ const postedInternshipSchema = new Schema(
       type: Date,
     },
     approvedBy: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
     },
     status: {

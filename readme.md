@@ -48,7 +48,7 @@ To get started with the LMS Platform APIs, follow these steps:
    DATABASE_URL=mongodb://localhost:27017/lms
    REDIS_URL=redis://127.0.0.1:6379
    JWT_SECRET=your_jwt_secret
-   PORT = 3500
+   PORT = 3000
    ```
 
    Note: Adjust the values according to your desired configuration.
@@ -58,7 +58,7 @@ To get started with the LMS Platform APIs, follow these steps:
    npm run dev
    ```
 
-   The server should now be running at `http://localhost:3500`.
+   The server should now be running at `http://localhost:3000`.
 
 ## API Documentation
 
@@ -96,7 +96,6 @@ The LMS Platform APIs follow RESTful principles and provide the following endpoi
 - **DELETE /assignment-feedbacks/:id**: Delete an assignment feedback.
 - **GET /course-assignments**: Retrieve a list of all course assignments.
 - **GET /course-assignments/:id
-
 
 ## License
 

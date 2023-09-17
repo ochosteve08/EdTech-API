@@ -17,10 +17,13 @@ const teacherCourseSchema = new Schema({
   timestamps: true,
 });
 
-teacherCourseSchema.pre(/^find/, function (next) {
+teacherCourseSchema.pre(/^find/, (next) => {
   this.populate({
-    path: 'teachers, courses ',
-    select: 'teacherName, description, course_name, course_description',
+    path: 'teacherId',
+    select: 'teacherName',
+  }).populate({
+    path: 'courseId',
+    select: 'description course_name course_description',
   });
   next();
 });
